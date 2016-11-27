@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 12:44:43 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 14:24:31 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/27 18:15:36 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		vll_node_add_front(t_vll *l, t_vll_node *n, t_vll_node *new)
 	if (!new->next)
 		l->tail = new;
 #endif
-#if (VLL_SiZE)
+#if (VLL_SIZE)
 	++l->size;
 #endif
 }

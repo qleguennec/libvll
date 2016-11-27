@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add_front.c                                    :+:      :+:    :+:   */
+/*   vll_map_io.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 13:01:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 20:59:06 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/27 21:09:19 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/27 21:13:17 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll.h"
 
-t_vll_node		*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size)
+void		vll_map_io(t_vll *l, void (*f)(t_vect *v))
 {
-	t_vll_node	*new;
+	t_vll_node	*n;
 
+	n = l->head;
+	if (!n)
+		return ;
 #if (VLL_VLL)
 	if (IS_VLL(l))
-		new = vll_node_new(data ? data : vll_new());
-	else
-		new = vll_vect_node_new(data, size);
-#else
-	new = vll_vect_node_new(data, size);
+	{
+		while (n)
+		{
+			vll_map_io(n->p, f);
+			n = n->next;
+		}
+	}
 #endif
-	vll_node_add_front(l, n, new);
-	return (new);
+	while (n)
+	{
+		f(n->p);
+		n = n->next;
+	}
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add_front.c                                    :+:      :+:    :+:   */
+/*   vll_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 13:01:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 20:59:06 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/27 18:05:06 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/27 21:41:22 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll.h"
+#include <unistd.h>
 
-t_vll_node		*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size)
+void		vll_print(int fd, t_vll *l, int opts)
 {
-	t_vll_node	*new;
+	t_vect	exp;
 
-#if (VLL_VLL)
-	if (IS_VLL(l))
-		new = vll_node_new(data ? data : vll_new());
-	else
-		new = vll_vect_node_new(data, size);
-#else
-	new = vll_vect_node_new(data, size);
-#endif
-	vll_node_add_front(l, n, new);
-	return (new);
+	vect_init(&exp);
+	vll_export(l, &exp, VLL_DEF_DELIM, VLL_EXPORT_DELIM);
+	write(fd, exp.data, exp.used);
+	free(exp.data);
+	if (opts & VLL_PRINT_NL)
+		write(fd, "\n", 1);
 }
