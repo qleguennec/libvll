@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add_front.c                                    :+:      :+:    :+:   */
+/*   vll_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 13:01:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 15:42:22 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/27 13:55:56 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/27 15:47:16 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll.h"
 
-t_vll_node		*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size)
+t_vll		*vll_new(void)
 {
-	t_vll_node	*new;
+	t_vll	*ret;
 
-#if (VLL_VLL)
-	if (IS_VLL(l))
-		new = vll_node_new(data ? data : vll_new());
-	else
-		new = vll_vect_node_new(data, size);
-#else
-	new = vll_vect_node_new(data, size);
-#endif
-	vll_node_add_front(l, n, new);
-	return (new);
+	MALLOC_SIZEOF(ret);
+	vll_init(ret);
+	return (ret);
 }
