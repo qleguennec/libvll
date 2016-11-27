@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add.c                                          :+:      :+:    :+:   */
+/*   vll_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/26 16:23:15 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 13:44:19 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/26 19:02:19 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/26 19:03:59 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll.h"
 
-t_vll_node		*vll_add(t_vll *l, void *data, size_t size)
+void		vll_init(t_vll *l)
 {
-	return (vll_add_front(l, NULL, data, size));
+	l->head = NULL;
+#if (VLL_TAIL)
+	l->tail = NULL;
+#endif
+#if (VLL_SIZE)
+	l->size = 0;
+#endif
 }
