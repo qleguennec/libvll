@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 t_vll_node		*vll_add(t_vll *l, void *data, size_t size)
 {

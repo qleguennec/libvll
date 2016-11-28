@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 static  void	cpy(t_vll *dest, t_vll_node *ns)
 {

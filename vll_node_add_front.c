@@ -6,11 +6,11 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 12:44:43 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 01:54:27 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 16:54:38 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 /*
  * if n is a NULL pointer, new node is placed at the head

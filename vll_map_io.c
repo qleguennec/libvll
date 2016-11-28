@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 void		vll_map_io(t_vll *l, void (*f)(t_vect *v))
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 /*
  * see vll_import for details

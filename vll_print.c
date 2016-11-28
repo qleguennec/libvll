@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 #include <unistd.h>
 
 void		vll_print(int fd, t_vll *l, int opts)

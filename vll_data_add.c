@@ -6,11 +6,11 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:30:25 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 13:31:25 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 17:43:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 t_vll_node		*vll_data_add(t_vll *l, void *data)
 {

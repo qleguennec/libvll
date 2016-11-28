@@ -6,11 +6,11 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:18:50 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 04:18:58 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 17:57:14 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll.h"
+#include "libvll_intern.h"
 
 /*
  * delim[0] is the character for closing a list, e.g '['
@@ -34,7 +34,7 @@ static void		vll_vll_import(char **s, t_vll *ret, char *delim, int opts)
 	n = NULL;
 	while (**s && **s != delim[1])
 	{
-		l = vll_import(s, delim, opts);
+		l = import(s, delim, opts);
 		n = vll_add_front(ret, n, l, 0);
 		skip_whitespace(s);
 		++(*s);
@@ -62,7 +62,7 @@ static void		data_import(char **s, t_vll *ret, char *delim, int opts)
 	}
 }
 
-t_vll			*vll_import(char **s, char *delim, int opts)
+t_vll			*import(char **s, char *delim, int opts)
 {
 	t_vll		*ret;
 
@@ -80,4 +80,9 @@ t_vll			*vll_import(char **s, char *delim, int opts)
 #endif
 	data_import(s, ret, delim, opts);
 	return (ret);
+}
+
+t_vll			*vll_import(char *s, char *delim, int opts)
+{
+	return (import(&s, delim, opts));
 }
