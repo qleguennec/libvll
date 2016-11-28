@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add_back.c                                     :+:      :+:    :+:   */
+/*   vll_data_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 13:05:43 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 04:19:20 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/28 13:30:25 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/28 13:31:25 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll.h"
 
-t_vll_node		*vll_add_back(t_vll *l, t_vll_node *n, void *data, size_t size)
+t_vll_node		*vll_data_add(t_vll *l, void *data)
 {
-	t_vll_node	*new;
+	t_vll_node	*n;
 
-#if (VLL_VLL)
-	if (IS_VLL(l))
-		new = vll_node_new(data ? data : vll_new());
-	else
-		new = vll_vect_node_new(data, size);
-#else
-	new = vll_vect_node_new(data, size);
-#endif
-	vll_node_add_back(l, n, new);
-	return (new);
+	n = vll_node_new(data);
+	return (vll_node_add(l, n));
 }

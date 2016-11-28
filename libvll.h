@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 00:46:40 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 13:32:03 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ t_vll					*vll_new(void);
 t_vll_node				*vll_add(t_vll *l, void *data, size_t size);
 t_vll_node				*vll_add_back(t_vll *l, t_vll_node *n, void *data, size_t size);
 t_vll_node				*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size);
+t_vll_node				*vll_data_add(t_vll *l, void *data);
+t_vll_node				*vll_node_add(t_vll *l, t_vll_node *n);
 t_vll_node				*vll_node_new(void *data);
 t_vll_node				*vll_tail(t_vll *l);
 t_vll_node				*vll_tail_add(t_vll *l, void *data, size_t size);

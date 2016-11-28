@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:18:50 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 01:07:32 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 04:18:58 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,12 @@ static void		vll_vll_import(char **s, t_vll *ret, char *delim, int opts)
 	t_vll_node	*n;
 
 	n = NULL;
-	while (**s)
+	while (**s && **s != delim[1])
 	{
 		l = vll_import(s, delim, opts);
 		n = vll_add_front(ret, n, l, 0);
 		skip_whitespace(s);
 		++(*s);
-		skip_whitespace(s);
-		if (**s != delim[2])
-			return ;
 	}
 }
 
@@ -50,8 +47,9 @@ static void		data_import(char **s, t_vll *ret, char *delim, int opts)
 	t_vll_node	*n;
 
 	n = NULL;
-	while (**s)
+	while (**s && **s != delim[1])
 	{
+		skip_whitespace(s);
 		++(*s);
 		s1 = *s;
 		while (**s && **s != delim[3])
@@ -59,10 +57,6 @@ static void		data_import(char **s, t_vll *ret, char *delim, int opts)
 		n = vll_add_front(ret, n, s1, *s - s1);
 		if (opts & VLL_IMPORT_STR)
 			vect_mset_end(n->p, '\0', 1);
-		++(*s);
-		skip_whitespace(s);
-		if (**s != delim[2])
-			return ;
 		++(*s);
 		skip_whitespace(s);
 	}
@@ -84,8 +78,6 @@ t_vll			*vll_import(char **s, char *delim, int opts)
 		return (ret);
 	}
 #endif
-	if (**s == delim[1])
-		return (ret);
 	data_import(s, ret, delim, opts);
 	return (ret);
 }
