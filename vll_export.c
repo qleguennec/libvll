@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 17:38:17 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 03:55:40 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 19:57:47 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 static void	export_data(t_vect *src, t_vect *v, char *delim, int opts)
 {
 	if (opts & VLL_EXPORT_DELIM)
-		ADD(delim[3]);
+		ADD(delim[2]);
 	vect_add(v, src->data, src->used);
 	if (opts & VLL_EXPORT_DELIM)
-		ADD(delim[3]);
+		ADD(delim[2]);
 }
 
 static void	export(t_vll *l, t_vect *v, char *delim, int opts)

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 17:53:48 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 20:06:01 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct			s_vll
 
 # define IS_VLL(l)			(l->vll_vll)
 
-# define VLL_DEF_DELIM		"[],'"
+# define VLL_DEF_DELIM		"[]'"
 
 # define VLL_IMPORT_STR		1
 
@@ -77,7 +77,8 @@ typedef struct			s_vll
 
 size_t					vll_size(t_vll *l);
 t_vll					*vll_new(void);
-t_vll					*vll_split(t_vll *l, void *match, size_t n);
+t_vll					*vll_split(void *s, size_t n1, void *match, size_t n2);
+t_vll					*vll_vll_split(t_vll *l, void *match, size_t n);
 t_vll_node				*vll_add(t_vll *l, void *data, size_t size);
 t_vll_node				*vll_add_back(t_vll *l, t_vll_node *n, void *data, size_t size);
 t_vll_node				*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size);
