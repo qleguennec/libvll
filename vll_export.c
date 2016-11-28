@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 17:38:17 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 22:20:13 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/28 00:36:32 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,41 @@ static void	export_data(t_vect *src, t_vect *v, char *delim, int opts)
 		ADD(delim[3]);
 }
 
+static void	export(t_vll *l, t_vect *v, char *delim, int opts);
+
+static void	vll_vll_export(t_vll *l, t_vect *v, char *delim, int opts)
+{
+	t_vll		*l1;
+	t_vll_node	*n;
+
+	n = l->head;
+	if (!n)
+		return ;
+	l1 = n->p;
+	export(n->p, v, delim, opts);
+	n = n->next;
+	if (n)
+	{
+		ADD(delim[2]);
+		ADD(' ');
+		vll_vll_export(n->p, v, delim, opts);
+	}
+}
+
 static void	export(t_vll *l, t_vect *v, char *delim, int opts)
 {
 	t_vll_node	*n;
 
-	n = l->head;
 #if (VLL_VLL)
 	if (IS_VLL(l))
+	{
+		ADD(delim[0]);
 		vll_vll_export(l, v, delim, opts);
+		ADD(delim[1]);
+		return ;
+	}
 #endif
+	n = l->head;
 	ADD(delim[0]);
 	while (n)
 	{
