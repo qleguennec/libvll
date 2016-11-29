@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_map_io.c                                       :+:      :+:    :+:   */
+/*   vll_arr_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 21:09:19 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 21:13:17 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/28 21:43:28 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/28 21:48:31 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll_intern.h"
+#include "libvll.h"
 
-void		vll_map_io(t_vll *l, void (*f)(t_vect *v))
+void		**vll_arr_export(t_vll *l, int opts)
 {
+	size_t		i;
+	size_t		len;
+	t_vect		*v;
 	t_vll_node	*n;
+	void		**ret;
 
+	MALLOC_N(ret, vll_size(l));
 	n = l->head;
-	if (!n)
-		return ;
-#if (VLL_VLL)
-	if (IS_VLL(l))
-	{
-		while (n)
-		{
-			vll_map_io(n->p, f);
-			n = n->next;
-		}
-	}
-#endif
+	i = 0;
 	while (n)
 	{
-		f(n->p);
+		v = n->p;
+		len = (opts & VLL_ARR_EXPORT_STR) + v->used;
+		MALLOC_N(ret[i], len);
+		ft_memcpy(ret[i], v->data, v->used);
+		if (opts & VLL_ARR_EXPORT_STR)
+			((unsigned char *)ret[i])[v->used] = '\0';
 		n = n->next;
+		i++;
 	}
+	return (ret);
 }
