@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 20:42:13 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 16:38:12 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:57:15 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_vll		*vll_fmap(t_vll *l, t_vll *(*f)(t_vll *, void *), void *ctxt)
 	t_vll_node	*n;
 	t_vll_node	*m;
 
-#if (VLL_VLL)
 	if (IS_VLL(l))
 	{
 		new = vll_new();
@@ -34,6 +33,5 @@ t_vll		*vll_fmap(t_vll *l, t_vll *(*f)(t_vll *, void *), void *ctxt)
 		}
 		return (new);
 	}
-#endif
 	return (f(l, ctxt));
 }

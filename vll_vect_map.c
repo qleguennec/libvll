@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 20:37:57 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 21:03:02 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:59:00 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void		vll_vect_map
 	n = l->head;
 	if (!n)
 		return ;
-#if (VLL_VLL)
 	if (IS_VLL(l))
 	{
 		while (n)
@@ -46,6 +45,5 @@ void		vll_vect_map
 			n = n->next;
 		}
 	}
-#endif
 	apply(n, f, ctxt);
 }

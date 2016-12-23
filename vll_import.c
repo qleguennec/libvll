@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:18:50 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 19:57:18 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:57:32 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,12 @@ t_vll			*import(char **s, char *delim, int opts)
 	++(*s);
 	skip_whitespace(s);
 	ret = vll_new();
-#if (VLL_VLL)
 	if (**s == delim[0])
 	{
 		ret->vll_vll = 1;
 		vll_vll_import(s, ret, delim, opts);
 		return (ret);
 	}
-#endif
 	data_import(s, ret, delim, opts);
 	return (ret);
 }

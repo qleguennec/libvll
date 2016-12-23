@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 19:02:19 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 13:14:13 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:57:40 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 void		vll_init(t_vll *l)
 {
 	l->head = NULL;
-#if (VLL_TAIL)
 	l->tail = NULL;
-#endif
-#if (VLL_SIZE)
 	l->size = 0;
-#endif
-#if (VLL_VLL)
 	l->vll_vll = 0;
-#endif
 }

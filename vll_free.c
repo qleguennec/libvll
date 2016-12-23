@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 00:40:04 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 04:00:01 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:57:26 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void		vll_free(t_vll *l)
 		free(l);
 		return ;
 	}
-#if (VLL_VLL)
 	if (IS_VLL(l))
 	{
 		while (n)
@@ -47,7 +46,6 @@ void		vll_free(t_vll *l)
 			n = m;
 		}
 	}
-#endif
 	free_elems(n);
 	free(l);
 }

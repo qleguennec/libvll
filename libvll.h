@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 23:44:02 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:55:42 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,51 +17,19 @@
 # include "../libft/libft.h"
 # include "../libft/malloc.h"
 
-# ifndef VLL_DLINK
-#  define VLL_DLINK		1
-# endif
-
-# ifndef VLL_SIZE
-#  define VLL_SIZE		1
-# endif
-
-# ifndef VLL_TAIL
-#  define VLL_TAIL		1
-# endif
-
-# ifndef VLL_VLL
-#  define VLL_VLL		1
-# endif
-
 typedef struct			s_vll_node
 {
 	void				*p;
 	struct s_vll_node	*next;
-# if (VLL_SIZE)
-
 	struct s_vll_node	*prev;
-# endif
-
 }						t_vll_node;
 
 typedef struct			s_vll
 {
 	t_vll_node			*head;
-# if (VLL_TAIL)
-
 	t_vll_node			*tail;
-# endif
-
-# if (VLL_SIZE)
-
 	size_t				size;
-# endif
-
-# if (VLL_VLL)
-
 	int					vll_vll : 1;
-# endif
-
 }						t_vll;
 
 # define IS_VLL(l)			(l->vll_vll)

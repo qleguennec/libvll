@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:00:14 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/27 17:04:47 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:56:27 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void			vll_dup(t_vll *dest, t_vll *src)
 	if (!(ns = src->head))
 		return ;
 	nd = NULL;
-#if (VLL_VLL)
 	if (IS_VLL(src))
 	{
 		dest->vll_vll = 1;
@@ -47,7 +46,5 @@ void			vll_dup(t_vll *dest, t_vll *src)
 	}
 	else
 		cpy(dest, ns);
-#else
 	cpy(dest, ns);
-#endif
 }

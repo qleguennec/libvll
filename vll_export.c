@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 17:38:17 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 19:57:47 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 00:57:05 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	export(t_vll *l, t_vect *v, char *delim, int opts)
 
 	if (!(n = l->head))
 		return ;
-#if (VLL_VLL)
 	if (IS_VLL(l))
 	{
 		ADD(delim[0]);
@@ -47,7 +46,6 @@ static void	export(t_vll *l, t_vect *v, char *delim, int opts)
 		ADD(delim[1]);
 		return ;
 	}
-#endif
 	ADD(delim[0]);
 	while (n)
 	{
