@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/23 00:55:42 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/23 01:08:31 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,8 @@ t_vll					*vll_import(char *s, char *delim, int opts);
 void					vll_export(t_vll *l, t_vect *v, char *delim, int opts);
 void					vll_print(int fd, t_vll *l, int opts);
 void					**vll_arr_export(t_vll *l, int opts);
+
+void					*vll_elem(t_vll *l, size_t n);
+void					*vll_node(t_vll *l, size_t n);
 
 #endif
