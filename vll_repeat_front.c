@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vll_add.c                                          :+:      :+:    :+:   */
+/*   vll_repeat_front.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/26 16:23:15 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/12 13:56:09 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/01/12 14:03:34 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/01/12 14:46:10 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvll_intern.h"
+#include "libvll.h"
 
-t_vll_node		*vll_add(t_vll *l, void *data, size_t size)
+void
+	vll_repeat_front
+	(t_vll *l
+	, t_vect (*f)(void *ctxt)
+	, void *ctxt
+	, size_t n)
 {
-	return (vll_add_front(l, NULL, data, size));
+	t_vect		v;
+	t_vll_node	*m;
+
+	m = NULL;
+	while (n)
+	{
+		v = f(ctxt);
+		vll_add_front(l, m, v.data, v.used);
+		n--;
+	}
 }

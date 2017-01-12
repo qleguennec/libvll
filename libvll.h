@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/12 11:39:58 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/12 14:14:26 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct			s_vll
 
 # define IS_VLL(l)			(l->vll_vll)
 # define VLL_DATA(n)		(((t_vect *)n->p)->data)
+
+# define VLL_ADD(v, d)		vll_add(v, &d, sizeof(d))
 
 # define VLL_DEF_DELIM		"[]'"
 
@@ -78,6 +80,8 @@ t_vll					*vll_fmap
 	(t_vll *l, t_vll *(*f)(t_vll *, void *), void *ctxt);
 void					vll_vect_map
 	(t_vll *l, t_vect *(*f)(t_vect *, void *ctxt), void *ctxt);
+void					vll_repeat_front
+	(t_vll *l, t_vect (*f)(void *ctxt), void *ctxt, size_t n);
 
 t_vll					*vll_import(char *s, char *delim, int opts);
 void					vll_export(t_vll *l, t_vect *v, char *delim, int opts);
