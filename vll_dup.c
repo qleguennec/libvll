@@ -6,13 +6,13 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:00:14 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/23 00:56:27 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/12 11:40:17 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll_intern.h"
 
-static  void	cpy(t_vll *dest, t_vll_node *ns)
+static void		cpy(t_vll *dest, t_vll_node *ns)
 {
 	t_vect		*v;
 	t_vll_node	*nd;

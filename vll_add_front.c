@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 13:01:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/23 00:54:43 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/12 11:38:22 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_vll_node		*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size)
 	if (IS_VLL(l))
 		new = vll_node_new(data ? data : vll_new());
 	else
-		new = size == (size_t)-1 ? vll_node_new(data) : vll_vect_node_new(data, size);
+		new = size == (size_t)-1
+			? vll_node_new(data) : vll_vect_node_new(data, size);
 	vll_node_add_front(l, n, new);
 	return (new);
 }

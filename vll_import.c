@@ -6,17 +6,17 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 16:18:50 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/23 00:57:32 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/12 13:53:40 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvll_intern.h"
 
 /*
- * delim[0] is the character for closing a list, e.g '['
- * delim[1] is the character for closing a list, e.g ']'
- * delim[2] is the character for delimiting elements, e.g "'"
- * if the string s or delim is not well formatted, the result is undefined
+** delim[0] is the character for closing a list, e.g '['
+** delim[1] is the character for closing a list, e.g ']'
+** delim[2] is the character for delimiting elements, e.g "'"
+** if the string s or delim is not well formatted, the result is undefined
 */
 
 static void		skip_whitespace(char **s)

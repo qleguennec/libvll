@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/23 01:08:31 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/12 11:39:58 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ t_vll					*vll_new(void);
 t_vll					*vll_split(t_vect *v, void *match, size_t n2, int opts);
 t_vll					*vll_vll_split(t_vll *l, void *match, size_t n);
 t_vll_node				*vll_add(t_vll *l, void *data, size_t size);
-t_vll_node				*vll_add_back(t_vll *l, t_vll_node *n, void *data, size_t size);
-t_vll_node				*vll_add_front(t_vll *l, t_vll_node *n, void *data, size_t size);
+t_vll_node				*vll_add_back
+	(t_vll *l, t_vll_node *n, void *data, size_t size);
+t_vll_node				*vll_add_front
+	(t_vll *l, t_vll_node *n, void *data, size_t size);
 t_vll_node				*vll_data_add(t_vll *l, void *data);
 t_vll_node				*vll_node_add(t_vll *l, t_vll_node *n);
 t_vll_node				*vll_node_new(void *data);
@@ -67,11 +69,15 @@ t_vll_node				*vll_vect_node_new(void *data, size_t size);
 void					vll_dup(t_vll *dest, t_vll *src);
 void					vll_free(t_vll *l);
 void					vll_init(t_vll *l);
-void					vll_node_add_back(t_vll *l, t_vll_node *n, t_vll_node *new);
-void					vll_node_add_front(t_vll *l, t_vll_node *n, t_vll_node *new);
+void					vll_node_add_back
+	(t_vll *l, t_vll_node *n, t_vll_node *new);
+void					vll_node_add_front
+	(t_vll *l, t_vll_node *n, t_vll_node *new);
 
-t_vll					*vll_fmap(t_vll *l, t_vll *(*f)(t_vll *, void *), void *ctxt);
-void					vll_vect_map(t_vll *l, t_vect *(*f)(t_vect *, void *ctxt), void *ctxt);
+t_vll					*vll_fmap
+	(t_vll *l, t_vll *(*f)(t_vll *, void *), void *ctxt);
+void					vll_vect_map
+	(t_vll *l, t_vect *(*f)(t_vect *, void *ctxt), void *ctxt);
 
 t_vll					*vll_import(char *s, char *delim, int opts);
 void					vll_export(t_vll *l, t_vect *v, char *delim, int opts);
