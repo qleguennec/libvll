@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 12:05:54 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/15 15:36:18 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/15 15:37:23 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 ** if l does not contain n, behaviour is undefined
 */
 
-static void	node_add_back(t_vll *l, t_vll_node *n, t_vll_node *new)
+static void	node_add_back(t_vll_node *n, t_vll_node *new)
 {
-	(void)l;
 	new->next = n;
 	new->prev = n ? n->prev : NULL;
 	if (n)
@@ -37,5 +36,5 @@ void		vll_node_add_back(t_vll *l, t_vll_node *n, t_vll_node *new)
 		l->head = new;
 	if (!new->next)
 		l->tail = new;
-	++l->size;
+	l->size++;
 }
