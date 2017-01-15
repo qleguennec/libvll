@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:32:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/14 18:55:30 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/15 15:34:42 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ typedef struct			s_vll
 # define IS_VLL(l)			(l->vll_vll)
 # define VLL_DATA(n)		(((t_vect *)n->p)->data)
 
-# define VLL_ADD(v, d)		vll_add(v, &d, sizeof(d))
+# define VLL_ADD(l, d)			vll_add(l, &d, sizeof(d))
+# define VLL_ADD_FRONT(l, n, d)	vll_add_front(l, n, &d, sizeof(d))
+# define VLL_ADD_BACK(l, n, d)	vll_add_back(l, n, &d, sizeof(d))
 
 # define VLL_DEF_DELIM		"[]'"
 
